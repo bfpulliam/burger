@@ -2,11 +2,20 @@ body{
     background: peru;
 }
 .jumbotron{
+    background: lightseagreen;
     font-family: "Georgia", serif;
     text-align: center;
     font-weight: 900;
 }
-form{
+.img {
+ width: 50%;
+ height: 50%;
+}
+.btn{
+    margin: 6px;
+    font-weight: bold;
+}
+#create-burger{
     margin: 0 auto;
     width:80%;
     z-index: 5;
