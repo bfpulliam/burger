@@ -1,0 +1,13 @@
+body{
+    background: peru;
+}
+.jumbotron{
+    font-family: "Georgia", serif;
+    text-align: center;
+    font-weight: 900;
+}
+form{
+    margin: 0 auto;
+    width:80%;
+    z-index: 5;
+}
