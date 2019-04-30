@@ -4,14 +4,16 @@
         <h1 class="display-4">Eat Da Burger!!</h1>
     </div>
 </div>
+<div class="container">
 <img src="../public/assets/img/burger.11.jpg" alt="burger">
+</div>
 <div class="container">
     <div class="row">
         <div class="col s6">
             {{#each burgers}}
             {{#unless this.devoured}}
             <div>
-                <form action="/burgers/{{this.id}}_method=PUT" method="POST">
+                <form action="/burgers/{{this.id}}_method=PUT" method="PUT">
                     <button type="button" class="btn btn-warning" aria-pressed="true">{{this.burger_name}}</button>
                 </form>
             </div>
@@ -32,9 +34,11 @@
         </div>
     </div>
 </div>
+<div class="container">
 <form class="form-inline" id="create-burger" action="/burgers" method="POST">
     <div class="form-group">
         <input type="text" class="form-control" placeholder="burger" id="name" name="burger_name">
     </div>
     <button type="submit" class="btn btn-secondary lg">Add Burger</button>
 </form>
+</div>
