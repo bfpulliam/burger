@@ -25,29 +25,23 @@ router.post("/burgers", function(req, res) {
 });
 
 router.put("/burgers/:id", function(req, res) {
-    var condition = "id = " + req.params.id;
-    var eaten = {devoured: 1};
-    burger.updateOne(
-        [eaten],
-        [condition],
+    var id = $(this).data("id");
+    var newDevoured = 1;
+    var newDevouredState = {
+        devoured: newDevoured
+    };
+
+    burger.updateOne({
+        data: newDevouredState
+    },id,
         function(data) {
-            res.redirect("/");
+            location.reload();
         }
     );
 });
 
-router.delete("/burgers/:id", function(req, res) {
-    var condition = "id = " + req.params.id;
 
-    burger.delete(condition, function(result) {
-        if (result.affectedRows == 0) {
-            // If no rows were changed, then the ID must not exist, so 404
-            return res.status(404).end();
-        } else {
-            res.status(200).end();
-        }
-    });
-});
 
 // Export routes for server.js to use.
 module.exports = router;
+
