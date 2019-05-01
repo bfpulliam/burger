@@ -9,33 +9,29 @@
 </div>
 <div class="container">
     <div class="row">
-        <div class="col s6">
+        <div class="col s6 col-left">
             {{#each burgers}}
             {{#unless this.devoured}}
             <div>
-                <form action="/burgers/{{this.id}}_method=PUT" method="PUT">
-                    <button type="button" class="btn btn-warning" aria-pressed="true">{{this.burger_name}}</button>
+                <form action="/burgers/{{id}}" method="PUT">
+                    <button type="submit" class="btn btn-warning" aria-pressed="true">{{this.burger_name}}</button>
                 </form>
             </div>
             {{/unless}}
             {{/each}}
         </div>
 
-        <div class="col s6">
+        <div class="col s6 col-right">
             {{#each burgers}}
             {{#if this.devoured}}
-            <div>
-                <div>
-                    {{this.burger_name}}
-                </div>
-            </div>
+            {{this.burger_name}}
             {{/if}}
             {{/each}}
         </div>
     </div>
 </div>
 <div class="container">
-<form class="form-inline" id="create-burger" action="/burgers" method="POST">
+<form class="form-inline create-form" id="create-burger" action="/burgers" method="POST">
     <div class="form-group">
         <input type="text" class="form-control" placeholder="burger" id="name" name="burger_name">
     </div>

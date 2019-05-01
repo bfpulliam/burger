@@ -8,16 +8,10 @@ var burger = {
         });
     },
     // The variables cols and vals are arrays.
-    insertOne: function (name, cb) {
-        orm.insertOne("burgers", [
-
-            "burger_name", "devoured"
-
-        ], [
-
-            name, false
-
-        ], cb(res));
+    insertOne: function (cols, vals, cb) {
+        orm.insertOne("burgers", cols, vals, function(res) {
+          cb(res);
+        });
 
     },
     updateOne: function (objColVals, condition, cb) {
@@ -25,7 +19,11 @@ var burger = {
             cb(res);
         });
     },
-    
+    delete: function(condition, cb) {
+        orm.delete("burgers", condition, function(res) {
+          cb(res);
+        });
+    }
 };
 
 // Export the database functions for the controller (burger_controller.js).
